@@ -2,7 +2,6 @@ package org.andy.work.entity;
 
 // Generated 2015-2-3 10:43:00 by Hibernate Tools 4.0.0
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,7 +36,7 @@ public class AcctUser implements java.io.Serializable {
 	private String id;
 	private String nickName;
 	private String telephone;
-	private Date registerTime;
+	private String registerTime;
 	private Set<AcctRole> acctRoles = new HashSet<AcctRole>(0);
 
 	public AcctUser() {
@@ -50,7 +49,7 @@ public class AcctUser implements java.io.Serializable {
 	}
 
 	public AcctUser(String id, String nickName, String telephone,
-			Date registerTime, Set<AcctRole> acctRoles) {
+			String registerTime, Set<AcctRole> acctRoles) {
 		this.id = id;
 		this.nickName = nickName;
 		this.telephone = telephone;
@@ -59,7 +58,7 @@ public class AcctUser implements java.io.Serializable {
 	}
 
 	@Id
-	@Column(name = "id", unique = true, nullable = false, length = 36)
+	@Column(name = "id", unique = true, nullable = false, length = 36)   
 	public String getId() {
 		return this.id;
 	}
@@ -86,13 +85,13 @@ public class AcctUser implements java.io.Serializable {
 		this.telephone = telephone;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "register_time", length = 19)
-	public Date getRegisterTime() {
+//	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "register_time", length = 14)
+	public String getRegisterTime() {
 		return this.registerTime;
 	}
 
-	public void setRegisterTime(Date registerTime) {
+	public void setRegisterTime(String registerTime) {
 		this.registerTime = registerTime;
 	}
 

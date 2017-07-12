@@ -4,9 +4,7 @@
 
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,17 +15,17 @@
 <title>userInfo</title>
 </head>
 <body>
-	用户信息     昵称： ${userInfo.nickName} 用户id：${userInfo.id}  用户电话:${userInfo.telephone }  
-	                  注册时间： <fmt:formatDate value="${userInfo.registerTime }" pattern="yyyy-MM-dd HH:mm:ss"/>
-	                  角色：[<c:forEach items="${ userInfo.acctRoles}" var="role">
+	用户信息 昵称： ${userInfo.nickName} 用户id：${userInfo.id} 用户电话:${userInfo.telephone }
+	注册时间： ${userInfo.registerTime } 角色：[
+	<c:forEach items="${ userInfo.acctRoles}" var="role">
 	                    ${role.name } &nbsp; 权限[
 	                       <c:forEach items="${ role.acctAuthorities}" var="authority">
 	                         ${authority.name } 
 	                       </c:forEach> ]
-	                  </c:forEach>]
-	
-	<br/>
-	ajax显示全部用户信息：
+	                  </c:forEach>
+	]
+
+	<br /> ajax显示全部用户信息：
 	<div id="show_all_user"></div>
 </body>
 <script type="text/javascript">
